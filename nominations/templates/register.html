@@ -1,0 +1,36 @@
+{% extends 'login_base.html' %}
+{% load static %}
+{% block content %}
+ <div style="width: 40%; height: auto;">
+        <div align="center">
+            <div class="jumbotron">
+                <form id="log_form" action="" method="post">
+                {% csrf_token %}
+                    <h1 style="font-family: Lato-Regular">Sign up:</h1>
+                    <div class="tab">
+                        Username
+                     <p><input placeholder="Username..." oninput="this.className = ''" name="name"></p>
+                     <label for="email">E-mail</label>
+                        <p><input placeholder="E-mail..." oninput="this.className = ''" name="email" type="email"></p>
+                    </div>
+                    <div class="tab">
+                        Password
+                        <p><input placeholder="Password..." oninput="this.className = ''" name="password" type="password"></p>
+                        Confirm password
+                        <p><input placeholder="Confirm password..." oninput="this.className = ''" name="second_password" type="password"></p>
+                    </div>
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                        </div>
+                    </div>
+                    <div style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% get_media_prefix %}
+{% block content %}
+    <div style="width: 70%; height: auto;">
+            <div class="jumbotron">
+                 <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                 </br>
+                     <button class="active_button btn btn-dark " type="submit">Upload</button>
+                 </form>
+            </div>
+    </div>
+{% endblock %}
+

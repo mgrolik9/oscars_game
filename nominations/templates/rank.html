@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="first_div">
+            <div class="jumbotron">
+                {% if response %}
+                    <p class="text-muted">{{response}}</p>
+                     <hr class="my-4">
+                {% else %}
+                    <h2>2020 oscars predictions scores</h2>
+                    </br>
+                    <h3>Congratulations <h4 style="color: darkred">{{request.user.username}}</h4></h3>
+                    <h3>Your score:</h3>
+                    <h4 style="color: darkblue">{{user_result}}/{{number_of_categories}}</h4></td>
+                    <hr class="my-4">
+                {% endif %}
+                <div>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form_div">
+                         <div class="search_div form-row align-items-center">
+                             <h4>You can search for others results</h4>
+                             <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Name</label>
+                                <input name="search_user" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Username">
+                             </div>
+                             <div class="col-auto">
+                                <button type="submit" class="active_button btn btn-dark mb-2">Check</button>
+                             </div>
+                         </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                {% if response2 %}
+                <p class="text-muted">{{response2}}</p>
+                {% elif checked_result %}
+                <table class="table table-sm">
+                    <tbody>
+                         <tr>
+                             <th scope="row"></th>
+                             <td><h4>Username</h4></td>
+                             <td><h4>Score</h4></td>
+                         </tr>
+                          <tr>
+                             <th scope="row"></th>
+                             <td><h5 style="color: darkred">{{checked_username}}</h5></td>
+                             <td><h5 style="color: darkblue; font-family: Roboto">{{checked_result}}/{{number_of_categories}}</h5></td>
+                         </tr>
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+    </div>
+{% endblock %}

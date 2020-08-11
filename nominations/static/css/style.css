@@ -1,0 +1,129 @@
+
+
+/* base styles */
+
+
+body {
+    background: #5a7670 no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+
+/* div styles */
+
+
+.base_div {
+    background-color: #b89f5d;
+    width: auto;
+    height: auto;
+}
+
+.first_div {
+    width: 70%;
+    height: auto;
+}
+
+
+.text_div {
+    width: auto;
+    height: 30px;
+}
+
+
+.plot_div {
+    width: 50%;
+    height: auto;
+}
+
+
+.nomination_div {
+    width: auto;
+    height: 25px;
+}
+
+
+.form_div {
+    width: 40%;
+    height: auto;
+}
+
+
+.search_div {
+    width: 60%;
+    height: auto;
+}
+
+
+/* text styles */
+
+
+h2 {
+    font-family: Lato-Regular;
+}
+
+
+h3 {
+    font-family: Lato-Light;
+}
+
+
+h4 {
+    font-family: OpenSans-Regular;
+}
+
+
+h5 {
+    font-family: Lato-Light;
+}
+
+
+h6 {
+    font-family: Roboto;
+}
+
+
+p {
+    font-family: Roboto;
+}
+
+
+/* button styles */
+
+
+.toggle_button {
+    color: black;
+    background-color: #b89f5d;
+}
+
+
+/* link styles */
+
+
+a {
+    color: darkblue;
+}
+
+
+.title {
+    color: darkblue;
+    font-family: Lato-Light;
+}
+
+
+.italic_title {
+    color: darkblue;
+    font-family: OpenSans-Italic;
+}
+
+
+.red_button {
+    color: black;
+    background-color: darkred;
+}
+
+
+.active_button {
+    color: black;
+    background-color: #b89f5d;
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% get_media_prefix %}
+{% block content %}
+    <div style="width: 70%; height: auto;">
+            <div class="jumbotron">
+
+               <table class="table table-sm">
+                    <tbody>
+                         <tr>
+                             <th scope="row"></th>
+                             <td><div align="center"><a href="{% url 'profile-picture' %}"><img data-toggle="tooltip" data-placement="top" title="Change profile picture"  class="img-thumbnail" src="{{request.user.profile.image.url}}" width="240"></a></br>
+                                 <h4 style="color: darkblue">{{request.user.username}}</h4></div></td>
+                             <td></br></br></br><a href="{% url 'profile-movies' %}"> Movies predictions</a></br>
+                                 <a href="{% url 'profile-people' %}"> Best in predictions </a></td>
+
+                         </tr>
+                    </tbody>
+               </table>
+            </div>
+    </div>
+{% endblock %}
+

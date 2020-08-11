@@ -1,0 +1,15 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oscars game</title>
+    <link rel="stylesheet" href="{% static 'css/form_style.css' %}">
+</head>
+<body>
+<div align="center">
+  {% block content %}
+    {% endblock %}
+</div>
+</body>
+<script src="{% static 'js/form.js' %}"></script>
+</html>

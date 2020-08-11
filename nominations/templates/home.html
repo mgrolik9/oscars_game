@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="first_div">
+        <div class="jumbotron">
+            <h2>Oscars nominations 2020</h2></br>
+            <div class="text_div">
+                <h6> Welcome to !oscars! app where you can choose and save your win types for 2020 ceremony,</h6>
+            </div>
+             <div class="text_div">
+                 <h6> then compare it with final results and other users while gaining points.</h6>
+             </div>
+        </br>
+        </br>
+             <div class="text_div">
+                 <h3> Let's begin with choosing nomination category. </h3>
+            </div>
+        </br>
+        </br>
+            <button class="toggle_button btn btn-dark dropdown-toggle" id="choose_movie"> Choose movie category </button>
+        </br>
+        </br>
+            <div id="view_movies_cat">
+                {% for key, value in movies %}
+                <div class="text_div">
+                    {% if key != 11 %}
+                <a href="{% url 'show-movies' key %}">{{value}} </a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        <button class="toggle_button btn btn-dark dropdown-toggle" id="choose_best">Choose best in category </button>
+            </br>
+            </br>
+            <div id="view_best_cat">
+                {% for key, value in people %}
+                <div class="text_div">
+                <a href="{% url 'show-people' key %}">{{value}} </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

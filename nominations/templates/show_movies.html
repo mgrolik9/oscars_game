@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="first_div">
+        <div class="jumbotron">
+            {% if response and response2 %}
+                    <p style="color: forestgreen">{{response}}</p>
+                    <p style="color: forestgreen">{{response2}}</p>
+                    <a class="active_button btn btn-dark" role="button" href="{% url 'home' %}">Return to categories</a>
+                {% endif %}
+            </br>
+            </br>
+            <h3>{{category_name}}</h3></br>
+                <hr class="my-4">
+                {% for key, value in movies_set %}
+                <div>
+                    <h4><a class="title" href="{% url 'show-one-movie' key.id %}">{{key.title}}</a></h4>
+                        </br>
+                        <img src="{{value}}">
+                        </br>
+                         </br>
+                         {% if key in movies_list %}
+                             <a class="red_button btn btn-dark" role="button" disabled="">Added</a>
+                        {% else %}
+                            <a  class="active_button btn btn-dark" role="button" href="{% url 'add-movie' key.id %}">Add to your profile</a>
+                        {% endif %}
+                         </br>
+                </div>
+                </br>
+                <hr class="my-4">
+                </br>
+                {% endfor %}
+            </div>
+    </div>
+{% endblock %}
+

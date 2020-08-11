@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="first_div">
+            <div class="jumbotron">
+                    <h3 style="font-family: Lato-Light;">{{movie.title}}</h3></br>
+                        <img src="{{poster}}"></br>
+                <br>
+                    <div class="plot_div">
+                        <p>{{plot}}</p>
+                    </div>
+                </br>
+                </br>
+                    <div class="first_div">
+                         <h4>Movie nominations</h4>
+                              {% for item in movies_list %}
+                                 {% if item.nomination_category != 11 %}
+                                     <div class="nomination_div">
+                                        <a href="{% url 'show-movies' item.nomination_category %}">{{item.get_nomination_category_display}}</a>
+                                     </div>
+                                {% else %}
+                                     <p class="text-muted" >No movie nomination</p>
+                                {% endif %}
+                             {% endfor %}
+                     </div>
+                </br>
+                </br>
+                    {% if people_nominations_set %}
+                        <div class="first_div">
+                             <h4>Best in nominations</h4>
+                                {% for item in people_nominations_set %}
+                                    <div style="width: auto; height: 60px">
+                                            <a href="{% url 'show-people' item.nomination_category %}">{{item.get_nomination_category_display}}</a>
+                                            <p>{{item.name}}</p>
+                                    </div>
+                                {% endfor %}
+                        </div>
+                    {% endif %}
+            </div>
+    </div>
+{% endblock %}

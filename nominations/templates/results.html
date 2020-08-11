@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="first_div">
+            <div class="jumbotron">
+                <h2>Oscars winners 2020</h2></br>
+                <div class="text_div">
+                    <h5>The results will be shared on a regular basis during the award ceremony.</h5>
+                    <h5> Check out oscars winners from 92nd Academy Awards</h5>
+                </div>
+                </br>
+                </br>
+                     {% if winners_set %}
+                    <button class="toggle_button btn btn-dark dropdown-toggle" id="view_movie">Movie winners</button>
+                </br>
+                    <div id="movie_div">
+                        {% for key, value in winners_set %}
+                            <div>
+                                </br>
+                                <h3><a href="{% url 'show-movies' key.nomination_category %}"> {{key.get_nomination_category_display}} </a></h3>
+                                </br>
+                                <h5><a class="italic_title" href="{% url 'show-one-movie' key.id %}">{{key.title}}</a></h5>
+                                </br>
+                                <img src={{value}}>
+                                </br>
+                                <hr class="my-4">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if winners_people_set %}
+                </br>
+                    <button class="toggle_button btn btn-dark dropdown-toggle" id="view_people">Best in winners</button>
+                </br>
+                    <div id="people_div">
+                        {% for key, value in winners_people_set %}
+                            <div>
+                                </br>
+                                <h3><a href="{% url 'show-people' key.nomination_category %}"> {{key.get_nomination_category_display}} </a></h3>
+                                </br>
+                                <h4>{{key.name}}</h4>
+                                <h5><a class="italic_title" href="{% url 'show-one-movie' key.movie.id %}">{{key.movie.title}}</a></h5>
+                                </br>
+                                </br>
+                                <img src={{value}}>
+                                <hr class="my-4">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+            </div>
+    </div>
+{% endblock %}

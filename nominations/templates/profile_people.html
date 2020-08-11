@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="first_div">
+            <div class="jumbotron">
+                 <h3>Your oscars predictions for best in film categories</h3></br>
+                {% if response %}
+                    <p class="text-muted">{{response}}</p>
+                {% endif %}
+                    {% for person in people_list %}
+                        </br>
+                        <h4 class="card-link">{{person.get_nomination_category_display}}</h4>
+                        <div class="first_div">
+                             <div align="center">
+                                 <ul class="nav justify-content-center">
+                                     <li>
+                                        <a style="color: darkblue" class="nav-link disabled" href="#" >{{person.name}}</a>
+                                    </li>
+                                     <li>
+                                        <a style="background-color: darkred" class="badge-pill badge-danger" href="{% url 'delete-people' person.id %}">x</a>
+                                    </li>
+                                </ul>
+                            </div>
+                         </div>
+                    {% endfor %}
+                    </br>
+            </div>
+    </div>
+{% endblock %}
