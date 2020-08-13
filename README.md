@@ -7,3 +7,9 @@ Oscars game is a web application where:
 - users can check how many points they have and compare it to others.
 
 
+1. Main page 
+
+![](oscars_screens/home_page.png)
+
+
+2.
