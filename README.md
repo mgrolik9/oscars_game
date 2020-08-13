@@ -44,3 +44,9 @@ Oscars game is a web application where:
 
 
 
+
+Project includes:
+- Python/Django
+- HTML/CSS/BOOTSTRAP
+- Javascript/jQuery
+- API - http://www.omdbapi.com/
