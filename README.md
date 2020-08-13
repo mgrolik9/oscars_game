@@ -12,4 +12,11 @@ Oscars game is a web application where:
 ![](oscars_screens/home_page.png)
 
 
-2.
+2. Categories
+
+![](oscars_screens/category.png)
+
+
+![](oscars_screens/category2.png)
+
+
