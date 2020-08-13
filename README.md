@@ -20,3 +20,27 @@ Oscars game is a web application where:
 ![](oscars_screens/category2.png)
 
 
+3. One movie details
+
+![](oscars_screens/movie_details.png)
+
+
+4. Scores
+
+![](oscars_screens/scores.png)
+
+
+5. Winners
+
+![](oscars_screens/winners.png)
+
+
+6. Profile
+
+![](oscars_screens/profile.png)
+
+
+![](oscars_screens/profile_predictions.png)
+
+
+
