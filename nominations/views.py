@@ -11,7 +11,9 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from nominations.models import Movie, ProfileMovies, Person, ProfilePeople, MOVIES_CATEGORIES, PERSON_CATEGORIES, \
     Profile
 from nominations.forms import ProfileForm
+from nominations.functions import get_movie_poster, get_people_movie_poster
 from oscars.local_settings import apikey
+
 import requests
 
 
@@ -95,12 +97,7 @@ class ShowMoviesView(View):
         category_name = category_list[category]
         movies_set = {}
 
-        for movie in movies:
-            payload = {'t': movie.title, 'y': 2019, 'apikey': apikey}
-            response = requests.get("http://www.omdbapi.com/", params=payload)
-            json_response = response.json()
-            poster = json_response.get("Poster")
-            movies_set[movie] = poster
+        get_movie_poster(movies, movies_set)
 
         try:
             check_user = ProfileMovies.objects.get(user=request.user)
@@ -156,12 +153,7 @@ class ShowPeopleView(View):
         category_name = category_list[category]
         people_set = {}
 
-        for person in people:
-            payload = {'t': person.movie.title, 'y': 2019, 'apikey': apikey}
-            response = requests.get("http://www.omdbapi.com/", params=payload)
-            json_response = response.json()
-            poster = json_response.get("Poster")
-            people_set[person] = poster
+        get_people_movie_poster(people, people_set)
 
         try:
             check_user = ProfilePeople.objects.get(user=request.user)
@@ -322,35 +314,14 @@ class Results(View):
                 except ObjectDoesNotExist:
                     return render(request, 'results.html')
 
-                for person in people_list:
-                    payload = {'t': person.movie.title, 'y': 2019, 'apikey': apikey}
-                    response = requests.get("http://www.omdbapi.com/", params=payload)
-                    json_response = response.json()
-                    poster = json_response.get("Poster")
-                    winners_people_set[person] = poster
+                get_people_movie_poster(people_list, winners_people_set)
                 return render(request, 'results.html', {'winners_people_set': winners_people_set.items()})
 
-            for movie in movies_list:
-                payload = {'t': movie.title, 'y': 2019, 'apikey': apikey}
-                response = requests.get("http://www.omdbapi.com/", params=payload)
-                json_response = response.json()
-                poster = json_response.get("Poster")
-                winners_set[movie] = poster
+            get_movie_poster(movies_list, winners_set)
             return render(request, 'results.html', {'winners_set': winners_set.items()})
 
-        for movie in movies_list:
-            payload = {'t': movie.title, 'y': 2019, 'apikey': apikey}
-            response = requests.get("http://www.omdbapi.com/", params=payload)
-            json_response = response.json()
-            poster = json_response.get("Poster")
-            winners_set[movie] = poster
-
-        for person in people_list:
-            payload = {'t': person.movie.title, 'y': 2019, 'apikey': apikey}
-            response = requests.get("http://www.omdbapi.com/", params=payload)
-            json_response = response.json()
-            poster = json_response.get("Poster")
-            winners_people_set[person] = poster
+        get_movie_poster(movies_list, winners_set)
+        get_people_movie_poster(people_list, winners_people_set)
         return render(request, 'results.html', {'winners_set': winners_set.items(),
                                                 'winners_people_set': winners_people_set.items()})
 
