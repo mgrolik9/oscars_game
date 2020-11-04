@@ -45,7 +45,7 @@ $ pip install -r requirements.txt
 2. Add local_settings.py in oscars folder and setup your database and apikey.
 
 In oscars/local_settings.py:
-
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -58,16 +58,16 @@ DATABASES = {
 }
 
 apikey = '...'
-
+```
 You can get your apikey from http://www.omdbapi.com/apikey.aspx.
 
 3. Migrate, createsuperuser and admin setup.
-
+```
 $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py createsuperuser
 $ python manage.py runserver
-
+```
 Visit your localhost/admin and add nominated movies and actors.
 
 ## Features
