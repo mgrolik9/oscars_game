@@ -38,9 +38,9 @@ Oscars game is a web application where:
 ## Setup
 1. Create virtualenv for project and install requirements.
 
-$ virtualenv -p /usr/bin/python3 virtualenv_name
-$ source virtualenv_name/bin/activate
-$ pip install -r requirements.txt
+* $ virtualenv -p /usr/bin/python3 virtualenv_name
+* $ source virtualenv_name/bin/activate
+* $ pip install -r requirements.txt
 
 2. Add local_settings.py in oscars folder and setup your database and apikey.
 
