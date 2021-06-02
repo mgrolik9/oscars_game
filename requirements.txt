@@ -22,6 +22,6 @@ rainbow==2.7.1
 regex==2020.5.14
 requests==2.23.0
 sqlparse==0.3.0
-urllib3==1.25.8
+urllib3==1.26.5
 Werkzeug==0.16.0
 yapf==0.30.0
